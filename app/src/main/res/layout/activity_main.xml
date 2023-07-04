@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/sixTeen"
+        android:layout_marginEnd="@dimen/sixTeen"
+        android:paddingTop="@dimen/sixTeen"
+        tools:context=".MainActivity">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageIcon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/faithconx_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sixTeen"
+            android:drawableStart="@drawable/profile"
+            android:drawablePadding="@dimen/sixTeen"
+            android:hint="@string/emailHint"
+            android:fontFamily="@font/pt_sans"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageIcon" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sixTeen"
+            android:drawableStart="@drawable/password"
+            android:drawablePadding="@dimen/sixTeen"
+            android:hint="@string/passwordHint"
+            android:fontFamily="@font/pt_sans"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etEmail" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvForgotText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgotText"
+            android:textAlignment="viewEnd"
+            android:fontFamily="@font/pt_sans"
+            android:textColor="@color/blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etPassword" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btEmailLogin"
+            style="@style/loginButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sixTeen"
+            android:text="@string/logInText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvForgotText" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btFacebook"
+            style="@style/facebookButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sixTeen"
+            android:drawableStart="@drawable/_01_facebook"
+            android:paddingStart="@dimen/sixTeen"
+            android:text="@string/facebookText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btEmailLogin" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btGoogle"
+            style="@style/googleButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/twenty"
+            android:drawableStart="@drawable/_02_google"
+            android:paddingStart="@dimen/sixTeen"
+            android:text="@string/googleText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btFacebook" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btPhone"
+            style="@style/phoneButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:drawableStart="@drawable/cell_icon"
+            android:paddingStart="@dimen/sixTeen"
+            android:text="@string/phoneText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btGoogle" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sixTeen"
+            android:text="@string/accountText"
+            android:textColor="@color/secondPrimaryWhite"
+            app:layout_constraintEnd_toStartOf="@id/tvSignup"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btPhone" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tvSignup"
+            android:textColor="@color/orange"
+            android:layout_marginTop="@dimen/sixTeen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvAccount"
+            app:layout_constraintTop_toBottomOf="@id/btPhone"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

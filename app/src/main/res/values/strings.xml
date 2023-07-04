@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">testui</string>
+    <string name="emailHint">Email</string>
+    <string name="passwordHint">Password</string>
+    <string name="logInText">Log In</string>
+    <string name="forgotText">Forgot Password?</string>
+    <string name="facebookText">Login With Facebook</string>
+    <string name="googleText">Login With Google</string>
+    <string name="phoneText">Login With Phone Number</string>
+    <string name="accountText">Don’t have an account?</string>
+    <string name="tvSignup">Create One.</string>
+    <string name="tvText">OR</string>
+    <string name="signupText">SignUp</string>
+    <string name="firstNameText">First Name</string>
+    <string name="lastNameText">Last Name</string>
+    <string name="phoneNumber">Phone Number</string>
+    <string name="confirmPasswordText">Confirm Password </string>
+    <string name="tvTextGuidlines">I accept</string>
+    <string name="tvterms">terms and conditions</string>
+    <string name="tvGuid"> and</string>
+    <string name="tvpolicies"> privacy and policies</string>
+    <string name="btContinue">Continue</string>
+</resources>
