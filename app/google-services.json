@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "434825466184",
+    "project_id": "testui-authentication",
+    "storage_bucket": "testui-authentication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:434825466184:android:21dd2b06db04df2df5237d",
+        "android_client_info": {
+          "package_name": "com.example.testui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "434825466184-smp0jre5n2kpgjjapi96bhsknokmcesq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.testui",
+            "certificate_hash": "aac499f16555cdae1293bede633a0500113c5633"
+          }
+        },
+        {
+          "client_id": "434825466184-029ecdiu2ven5mfcu42u742iicuvdhgu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDLtNJ6AO4AMmKJI_Vj1_Dsbem1jpTNU38"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "434825466184-029ecdiu2ven5mfcu42u742iicuvdhgu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

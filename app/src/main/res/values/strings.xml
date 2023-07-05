@@ -20,4 +20,7 @@
     <string name="tvGuid"> and</string>
     <string name="tvpolicies"> privacy and policies</string>
     <string name="btContinue">Continue</string>
+    <string name="phoneNumberHint">Enter 10 digits Phone Number</string>
+    <string name="otpHint">GET OTP</string>
+    <string name="submitText">Verify</string>
 </resources>

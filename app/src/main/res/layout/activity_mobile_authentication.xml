@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/twenty"
+
+    android:layout_marginEnd="@dimen/twenty"
+    android:padding="@dimen/twenty"
+
+    tools:context=".view.MobileAuthenticationActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sixTeen"
+        android:src="@drawable/close_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageIcon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/twenty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivClose"
+        app:srcCompat="@drawable/faithconx_icon" />
+
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etPhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/twenty"
+        android:hint="@string/phoneNumberHint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:drawableStart="@drawable/phone_icon"
+        android:drawablePadding="@dimen/sixTeen"
+        app:layout_constraintTop_toBottomOf="@id/imageIcon"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btOtp"
+        style="@style/otpButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/twenty"
+        android:text="@string/otpHint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etPhoneNumber" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etOtp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/forty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btOtp"
+  />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btverify"
+        style="@style/submitButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/twenty"
+        android:text="@string/submitText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etOtp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

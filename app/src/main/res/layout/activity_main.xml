@@ -12,15 +12,24 @@
         android:layout_marginEnd="@dimen/sixTeen"
         android:paddingTop="@dimen/sixTeen"
         tools:context=".MainActivity">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/twenty"
+            android:src="@drawable/close_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageIcon"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/forty"
             android:src="@drawable/faithconx_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/ivClose"/>
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etEmail"
@@ -71,6 +80,39 @@
             app:layout_constraintTop_toBottomOf="@id/tvForgotText" />
 
 
+
+        <View
+            android:id="@+id/viewLineStart"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/secondPrimaryWhite"
+            app:layout_constraintBottom_toTopOf="@id/btFacebook"
+            app:layout_constraintEnd_toStartOf="@id/TvOr"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btEmailLogin" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/TvOr"
+            style="@style/tvOrStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tvText"
+            app:layout_constraintBottom_toTopOf="@id/btFacebook"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@id/viewLineStart"
+            app:layout_constraintTop_toBottomOf="@id/btEmailLogin" />
+
+        <View
+            android:id="@+id/endLine"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@color/secondPrimaryWhite"
+            app:layout_constraintBottom_toTopOf="@id/btFacebook"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/TvOr"
+            app:layout_constraintTop_toBottomOf="@id/btEmailLogin" />
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btFacebook"
             style="@style/facebookButton"
