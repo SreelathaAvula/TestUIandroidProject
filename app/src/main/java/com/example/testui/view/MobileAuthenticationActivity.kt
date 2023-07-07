@@ -26,8 +26,10 @@ class MobileAuthenticationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMobileAuthenticationBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         binding.etOtp.visibility= View.GONE
         binding.btverify.visibility= View.GONE
+        binding.progressBar.visibility=View.GONE
 
         binding.btOtp.setOnClickListener {
             var number = binding.etPhoneNumber.text.toString()
@@ -44,7 +46,6 @@ class MobileAuthenticationActivity : AppCompatActivity() {
                     PhoneAuthProvider.verifyPhoneNumber(options)
                 } else {
                     Toast.makeText(this,"enter only 10 digits",Toast.LENGTH_SHORT).show()
-
                 }
             } else {
                 Toast.makeText(this,"number should not be null",Toast.LENGTH_SHORT).show()
@@ -54,58 +55,43 @@ class MobileAuthenticationActivity : AppCompatActivity() {
         }
 
         binding.btverify.setOnClickListener {
-
-            Log.i(
-                TAG,
-                "clicking on verify button to check weather generated otp and entered otp is same or not : "
-            )
+            binding.progressBar.visibility=View.VISIBLE
 
             val enterdOtp = binding.etOtp.text.toString()
             val credential=PhoneAuthProvider.getCredential(otpId,enterdOtp)
             signInWithPhoneAuthCredential(credential)
-
         }
         binding.ivClose.setOnClickListener {
             startActivity(Intent(this@MobileAuthenticationActivity, MainActivity::class.java))
         }
     }
-
     private val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-
-        override fun onCodeSent(
-            verificationId: String,
-            token: PhoneAuthProvider.ForceResendingToken,
-        ) {
+        override fun onCodeSent(verificationId: String, token: PhoneAuthProvider.ForceResendingToken) {
             Log.i(TAG, "onCodeSent: ")
-
             otpId = verificationId
-
         }
-
         override fun onVerificationCompleted(credential: PhoneAuthCredential) {
             Log.i(TAG, "onVerificationCompleted: ")
             signInWithPhoneAuthCredential(credential)
-
         }
-
         override fun onVerificationFailed(e: FirebaseException) {
-
-            if (e is FirebaseAuthInvalidCredentialsException) {
-                Log.i(TAG, "onVerificationFailed: ")
-            } else if (e is FirebaseTooManyRequestsException) {
-                Log.i(TAG, "onVerificationFailed: for too many requests")
-            }
+            Toast.makeText(this@MobileAuthenticationActivity, e.message, Toast.LENGTH_SHORT).show()
         }
-
     }
-
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
         auth.signInWithCredential(credential).addOnCompleteListener(this) { task ->
             if (task.isSuccessful) {
+                binding.progressBar.visibility=View.GONE
+
                 startActivity(Intent(this@MobileAuthenticationActivity, HomeActivity::class.java))
+                binding.etOtp.visibility= View.GONE
+                binding.btverify.visibility= View.GONE
             } else {
                 Toast.makeText(this@MobileAuthenticationActivity, "Verification failed", Toast.LENGTH_SHORT).show()
+                binding.progressBar.visibility=View.GONE
+
             }
+
         }
     }
 }

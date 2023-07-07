@@ -55,6 +55,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etPhoneNumber" />
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btOtp"
+        android:layout_marginTop="@dimen/forty"
+        android:layout_marginBottom="@dimen/forty"
+     />
+
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etOtp"
@@ -63,7 +74,7 @@
         android:layout_marginTop="@dimen/forty"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btOtp"
+        app:layout_constraintTop_toBottomOf="@id/progressBar"
   />
 
 

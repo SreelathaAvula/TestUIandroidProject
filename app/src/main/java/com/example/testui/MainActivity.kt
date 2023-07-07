@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.example.testui.databinding.ActivityMainBinding
 import com.example.testui.view.MobileAuthenticationActivity
 import com.example.testui.view.SignUpActivity
+import com.example.testui.view.UsersActivity
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -36,5 +37,13 @@ class MainActivity : AppCompatActivity() {
 
     private fun openMobileAuthenticationActivity() {
         startActivity(Intent(this@MainActivity, MobileAuthenticationActivity::class.java))
+    }
+    override fun onBackPressed() {
+        if (isTaskRoot) {
+            val intent = Intent(this,UsersActivity::class.java)
+            startActivity(intent)
+        } else {
+            super.onBackPressed()
+        }
     }
 }
