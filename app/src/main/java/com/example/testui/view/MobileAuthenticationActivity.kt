@@ -6,10 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import com.example.testui.MainActivity
 import com.example.testui.databinding.ActivityMobileAuthenticationBinding
 import com.google.firebase.FirebaseException
-import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
 import com.google.firebase.auth.FirebaseAuth
 import java.util.concurrent.TimeUnit
@@ -62,7 +60,7 @@ class MobileAuthenticationActivity : AppCompatActivity() {
             signInWithPhoneAuthCredential(credential)
         }
         binding.ivClose.setOnClickListener {
-            startActivity(Intent(this@MobileAuthenticationActivity, MainActivity::class.java))
+            startActivity(Intent(this@MobileAuthenticationActivity, LoginActivity::class.java))
         }
     }
     private val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {

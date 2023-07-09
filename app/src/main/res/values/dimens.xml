@@ -8,4 +8,5 @@
     <dimen name="fourteen">14sp</dimen>
     <dimen name="fifteen">15sp</dimen>
     <dimen name="seventeen">17sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

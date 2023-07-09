@@ -1,18 +1,15 @@
-package com.example.testui
+package com.example.testui.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.testui.databinding.ActivityMainBinding
-import com.example.testui.view.MobileAuthenticationActivity
-import com.example.testui.view.SignUpActivity
-import com.example.testui.view.UsersActivity
+import com.example.testui.databinding.ActivityLoginBinding
 
-class MainActivity : AppCompatActivity() {
-    lateinit var binding: ActivityMainBinding
+class LoginActivity : AppCompatActivity() {
+    lateinit var binding:ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
 
@@ -32,11 +29,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openSignupPge() {
-        startActivity(Intent(this@MainActivity, SignUpActivity::class.java))
+        startActivity(Intent(this@LoginActivity, SignUpActivity::class.java))
     }
 
     private fun openMobileAuthenticationActivity() {
-        startActivity(Intent(this@MainActivity, MobileAuthenticationActivity::class.java))
+        startActivity(Intent(this@LoginActivity, MobileAuthenticationActivity::class.java))
     }
     override fun onBackPressed() {
         if (isTaskRoot) {

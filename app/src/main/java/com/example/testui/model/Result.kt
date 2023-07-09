@@ -1,6 +1,6 @@
 package com.example.testui.model
 
-data class Result(
+ data class Result(
     val cell: String,
     val dob: Dob,
     val email: String,
