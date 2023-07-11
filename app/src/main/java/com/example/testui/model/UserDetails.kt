@@ -3,8 +3,9 @@ package com.example.testui.model
 data class UserDetails(
     val info: Info,
     val results: List<Result>
-)
-{
+) {
+
+
     data class Result(
         val cell: String,
         val dob: Dob,

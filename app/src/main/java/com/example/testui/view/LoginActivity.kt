@@ -26,7 +26,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             ivClose.setOnClickListener(this@LoginActivity)
         }
     }
-
     override fun onClick(view: View?) {
         when(view?.id){
             R.id.btEmailLogin->reDirectToMainActivity()
@@ -50,5 +49,4 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
         startActivity(intent)
     }
-
 }

@@ -12,7 +12,6 @@ import com.example.testui.network.UsersApiClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import com.example.testui.model.UserDetails.Result
 
 
 class UsersActivity : AppCompatActivity() {
@@ -25,25 +24,26 @@ class UsersActivity : AppCompatActivity() {
     }
     private fun getData() {
         UsersApiClient().apiService.getUserData(5).enqueue(object : Callback<UserDetails>{
-            override fun onResponse(call: Call<UserDetails>, response: Response<UserDetails>) {
+            override fun onResponse(call: Call<UserDetails>, response: Response<UserDetails>){
                 val recycleList:RecyclerView=findViewById(R.id.recycleList)
                 if (response.isSuccessful){
                     val userDetails: UserDetails? = response.body()
+
                     val outPut=userDetails?.results
                  /*   val results: ArrayList<UserDetails.Result>? = userDetails.results*/
                     if(outPut != null){
-                        userAdapter = UserAdapter() // Set the userAdapter again
-
+                        userAdapter = UserAdapter(outPut) // Set the userAdapter again
                         recycleList.adapter=userAdapter
                         recycleList.layoutManager=LinearLayoutManager(this@UsersActivity)
                         recycleList.adapter?.notifyDataSetChanged()
                     }
                 }
             }
-            override fun onFailure(call: Call<UserDetails>, t: Throwable) {
+            override fun onFailure(call: Call<UserDetails>,t: Throwable) {
                 Log.i(TAG, "onFailure: ${t.message}")
             }
         })
-
     }
 }
+
+

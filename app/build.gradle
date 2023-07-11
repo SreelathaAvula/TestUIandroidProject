@@ -59,5 +59,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.localebro:okhttpprofiler:1.0.8'
+    implementation 'com.hbb20:ccp:X.Y.Z'
+
 }
 

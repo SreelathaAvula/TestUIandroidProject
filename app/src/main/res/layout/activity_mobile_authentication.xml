@@ -8,12 +8,15 @@
     android:layout_marginEnd="@dimen/twentyDp"
     android:padding="@dimen/twentyDp"
     tools:context=".view.MobileAuthenticationActivity">
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivClose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/sixTeenDp"
         android:src="@drawable/close_icon"
+        app:layout_constraintEnd_toStartOf="@id/etPhoneNumber"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,20 +31,29 @@
         app:layout_constraintTop_toBottomOf="@id/ivClose"
         app:srcCompat="@drawable/faithconx_icon" />
 
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/country_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:ccp_autoDetectCountry="true"
+        app:ccp_defaultNameCode="IND"
+        app:ccp_showFlag="true"
+        app:ccp_showNameCode="true"
+        app:layout_constraintBottom_toBottomOf="@id/etPhoneNumber"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/etPhoneNumber"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/twentyDp"
-        android:hint="@string/phoneNumberHint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         android:drawableStart="@drawable/phone_icon"
+        android:hint="@string/phoneNumberHint"
         android:drawablePadding="@dimen/sixTeenDp"
-        app:layout_constraintTop_toBottomOf="@id/imageIcon"
-        />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/country_code"
+        app:layout_constraintTop_toBottomOf="@id/imageIcon" />
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btOtp"
         style="@style/otpButtonStyle"
@@ -52,16 +64,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etPhoneNumber" />
+
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btOtp"
         android:layout_marginTop="@dimen/fortyDp"
         android:layout_marginBottom="@dimen/fortyDp"
-     />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btOtp" />
 
 
     <androidx.appcompat.widget.AppCompatEditText
@@ -71,8 +83,7 @@
         android:layout_marginTop="@dimen/fortyDp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/progressBar"
-  />
+        app:layout_constraintTop_toBottomOf="@id/progressBar" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btverify"

@@ -6,13 +6,17 @@
     android:layout_marginStart="@dimen/twentyDp"
     android:layout_marginEnd="@dimen/twentyDp"
     android:layout_marginBottom="@dimen/twentyDp">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/sixTeenDp">
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/twentyDp"
             android:hint="CHURCH OF ATLANTA"
             android:textSize="@dimen/fifteenSp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,10 +30,12 @@
             android:layout_marginTop="@dimen/tenDp"
             android:fontFamily="@font/pt_sans"
             android:hint="Should We All Pray Everyday"
+            android:textColor="@color/black"
             android:textSize="@dimen/fifteenSp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/title"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/title" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -37,18 +43,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/tenDp"
-            android:layout_marginTop="@dimen/sixTeenDp"
+            android:layout_marginTop="@dimen/fiveDp"
             app:layout_constraintBottom_toBottomOf="@+id/SecondTitle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toEndOf="@id/SecondTitle"
             app:layout_constraintTop_toTopOf="@+id/SecondTitle"
             app:srcCompat="@drawable/church_red" />
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgProfileOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/imgProfileTwo"
+            android:paddingStart="@dimen/fortyDp"
             app:layout_constraintEnd_toStartOf="@+id/imgProfileTwo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/SecondTitle"
@@ -82,6 +89,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/sixTeenDp"
+            android:src="@drawable/ic_comments_dots"
             app:layout_constraintBottom_toBottomOf="@+id/tvDetailOne"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
@@ -94,7 +102,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/fiveDp"
             android:hint="Noelle Chesnut Whitmore"
-
             app:layout_constraintBottom_toTopOf="@+id/tvDetailThree"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
@@ -104,11 +111,11 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgChatTwo"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/sixTeenDp"
+            android:src="@drawable/ic_comments_dots"
             app:layout_constraintBottom_toBottomOf="@+id/tvDetailTwo"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toEndOf="@+id/tvDetailTwo"
             app:layout_constraintTop_toTopOf="@+id/tvDetailTwo" />
@@ -119,7 +126,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/fiveDp"
             android:hint="Drue Kataoka"
-            app:layout_constraintBottom_toTopOf="@+id/tvDeatailFour"
+            app:layout_constraintBottom_toTopOf="@+id/tvDetailFour"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toStartOf="@+id/tvDetailTwo"
@@ -131,6 +138,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/sixTeenDp"
+            android:src="@drawable/ic_comments_dots"
             app:layout_constraintBottom_toBottomOf="@+id/tvDetailThree"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"
@@ -138,7 +146,7 @@
             app:layout_constraintTop_toTopOf="@+id/tvDetailThree" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvDeatailFour"
+            android:id="@+id/tvDetailFour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/tenDp"
@@ -150,15 +158,29 @@
             app:layout_constraintTop_toBottomOf="@+id/tvDetailThree" />
 
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgChatFour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sixTeenDp"
+            android:src="@drawable/ic_comments_dots"
+            app:layout_constraintBottom_toBottomOf="@+id/tvDetailFour"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/tvDetailFour"
+            app:layout_constraintTop_toTopOf="@+id/tvDetailFour" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/tenDp"
             android:layout_marginTop="@dimen/tenDp"
+            android:layout_marginBottom="@dimen/sixTeenDp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/imgProfileOne"
-            app:layout_constraintTop_toBottomOf="@id/tvDeatailFour"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailFour"
             app:srcCompat="@drawable/peoples" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -168,26 +190,26 @@
             android:layout_marginStart="@dimen/tenDp"
             android:text="520"
             app:layout_constraintBottom_toBottomOf="@+id/imgGroup"
-            app:layout_constraintStart_toEndOf="@+id/imgGroup"
-           />
+            app:layout_constraintStart_toEndOf="@+id/imgGroup" />
 
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imgCount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="@+id/imgGroup"
             android:layout_marginStart="@dimen/fortyDp"
-            app:layout_constraintStart_toEndOf="@+id/tvConnectionCount"
-          />
+            android:src="@drawable/ic_following_count_image"
+            app:layout_constraintBottom_toBottomOf="@+id/imgGroup"
+            app:layout_constraintStart_toEndOf="@+id/tvConnectionCount" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvCount"
             android:layout_width="21dp"
             android:layout_height="19dp"
             android:layout_marginStart="@dimen/tenDp"
+            android:layout_marginBottom="@dimen/sixTeenDp"
             android:hint="12"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imgCount"
-           />
+            app:layout_constraintStart_toEndOf="@+id/imgCount" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

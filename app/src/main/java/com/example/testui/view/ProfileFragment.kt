@@ -15,5 +15,4 @@ class ProfileFragment : Fragment() {
          val view=inflater.inflate(R.layout.fragment_profile, container, false)
         return return view
     }
-
 }

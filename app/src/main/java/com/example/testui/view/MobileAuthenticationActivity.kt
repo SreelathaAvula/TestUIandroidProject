@@ -87,9 +87,7 @@ class MobileAuthenticationActivity : AppCompatActivity() {
             } else {
                 Toast.makeText(this@MobileAuthenticationActivity, "Verification failed", Toast.LENGTH_SHORT).show()
                 binding.progressBar.visibility=View.GONE
-
             }
-
         }
     }
 }

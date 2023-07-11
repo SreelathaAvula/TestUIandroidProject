@@ -26,9 +26,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
     override fun onClick(view: View?) {
         when(view?.id){
-            R.id.homeButton->placeFragmentPage()
+           // R.id.homeButton->placeFragmentPage()
+            R.id.homeButton->reDirectToHomePage()
             R.id.profileButton->placeProfileFragmentPage()
         }
+    }
+
+    private fun reDirectToHomePage() {
+        startActivity(Intent(this@MainActivity,UsersActivity::class.java))
     }
 
     private fun placeFragmentPage() {

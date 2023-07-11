@@ -12,6 +12,7 @@
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/sixTeenDp"
         android:layout_marginEnd="@dimen/sixTeenDp">
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivClose"
             android:layout_width="wrap_content"
@@ -19,7 +20,7 @@
             android:layout_marginTop="@dimen/fortyDp"
             android:src="@drawable/close_icon"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvSignUp"
@@ -30,7 +31,7 @@
             android:text="@string/signupText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivClose"/>
+            app:layout_constraintTop_toBottomOf="@id/ivClose" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etFirstName"
@@ -69,22 +70,34 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etFirstName" />
 
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/country_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:ccp_autoDetectCountry="true"
+            app:ccp_defaultNameCode="IND"
+            app:ccp_showFlag="true"
+            app:ccp_showNameCode="true"
+            app:layout_constraintBottom_toBottomOf="@id/etPhone"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etPhone"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/twentyDp"
             android:drawableStart="@drawable/phone_icon"
             android:drawablePadding="@dimen/sixTeenDp"
             android:hint="@string/phoneNumber"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/country_code"
             app:layout_constraintTop_toBottomOf="@id/etEmail" />
-
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etPassword"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/twentyDp"
             android:drawableStart="@drawable/password"
@@ -116,6 +129,7 @@
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/etConfirmPassword" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvGuidlines"
             android:layout_width="wrap_content"
@@ -137,20 +151,18 @@
             android:text="@string/tvterms"
             android:textColor="@color/blue"
             app:layout_constraintStart_toEndOf="@+id/tvGuidlines"
-            app:layout_constraintTop_toBottomOf="@id/etConfirmPassword"
-         />
+            app:layout_constraintTop_toBottomOf="@id/etConfirmPassword" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvGuid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/twentyDp"
+            android:paddingStart="@dimen/sixTeenDp"
             android:text="@string/tvGuid"
             android:textColor="@color/black"
-            android:paddingStart="@dimen/sixTeenDp"
             app:layout_constraintStart_toEndOf="@id/tvTerms"
-            app:layout_constraintTop_toBottomOf="@id/etConfirmPassword"
-            />
+            app:layout_constraintTop_toBottomOf="@id/etConfirmPassword" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvPolicies"
@@ -158,9 +170,9 @@
             android:layout_height="wrap_content"
             android:text="@string/tvpolicies"
             android:textColor="@color/blue"
+            app:layout_constraintEnd_toEndOf="@id/tvTerms"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/tvTerms"
             app:layout_constraintTop_toBottomOf="@id/tvTerms" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -168,10 +180,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/fortyDp"
+            android:text="@string/btContinue"
             android:textAllCaps="false"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:text="@string/btContinue"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvPolicies" />
     </androidx.constraintlayout.widget.ConstraintLayout>
