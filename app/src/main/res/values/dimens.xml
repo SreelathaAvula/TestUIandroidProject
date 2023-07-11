@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="ten">10dp</dimen>
-    <dimen name="sixTeen">16dp</dimen>
-    <dimen name="twenty">20dp</dimen>
-    <dimen name="forty">40dp</dimen>
+    <!-- number Dp values-->
+    <dimen name="threeDp">3dp</dimen>
+    <dimen name="fiveDp">5dp</dimen>
+    <dimen name="tenDp">10dp</dimen>
+    <dimen name="fourTeenDp">14dp</dimen>
+    <dimen name="sixTeenDp">16dp</dimen>
+    <dimen name="twentyDp">20dp</dimen>
+    <dimen name="fortyDp">40dp</dimen>
 
-    <dimen name="fourteen">14sp</dimen>
-    <dimen name="fifteen">15sp</dimen>
-    <dimen name="seventeen">17sp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
+    <!-- number sp values-->
+
+    <dimen name="fourteenSp">14sp</dimen>
+    <dimen name="fifteenSp">15sp</dimen>
+    <dimen name="seventeenSp">17sp</dimen>
+    <dimen name="sixTeenSp">16sp</dimen>
+    <dimen name="fifteenDp">15dp</dimen>
 </resources>

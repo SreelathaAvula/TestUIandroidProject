@@ -1,48 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginStart="@dimen/sixTeen"
-    android:layout_marginEnd="@dimen/sixTeen">
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvcell"
+    android:layout_marginStart="@dimen/twentyDp"
+    android:layout_marginEnd="@dimen/twentyDp"
+    android:layout_marginBottom="@dimen/twentyDp">
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/sixTeen"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvdob"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/sixTeen"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvcell"
-        />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvemail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/sixTeen"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvdob"
-        />
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvGender"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="CHURCH OF ATLANTA"
+            android:textSize="@dimen/fifteenSp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="@dimen/sixTeen"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="@dimen/forty"
-        app:layout_constraintTop_toBottomOf="@id/tvemail"
-        />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/SecondTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tenDp"
+            android:fontFamily="@font/pt_sans"
+            android:hint="Should We All Pray Everyday"
+            android:textSize="@dimen/fifteenSp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/title"
+            app:layout_constraintTop_toBottomOf="@id/title" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgChurch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tenDp"
+            android:layout_marginTop="@dimen/sixTeenDp"
+            app:layout_constraintBottom_toBottomOf="@+id/SecondTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/SecondTitle"
+            app:layout_constraintTop_toTopOf="@+id/SecondTitle"
+            app:srcCompat="@drawable/church_red" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgProfileOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/imgProfileTwo"
+            app:layout_constraintEnd_toStartOf="@+id/imgProfileTwo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/SecondTitle"
+            app:srcCompat="@mipmap/ic_man_profile_foreground" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgProfileTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sixTeenDp"
+            android:layout_marginTop="@dimen/twentyDp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/SecondTitle"
+            app:srcCompat="@mipmap/ic_second_man_profile_foreground" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDetailOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tenDp"
+            android:layout_marginTop="@dimen/tenDp"
+            android:text="Leiti Hsu"
+            app:layout_constraintBottom_toTopOf="@+id/tvDetailTwo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@id/imgProfileTwo"
+            app:layout_constraintTop_toBottomOf="@+id/SecondTitle" />
+        <!-- chat -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgChatOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sixTeenDp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvDetailOne"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/tvDetailOne"
+            app:layout_constraintTop_toTopOf="@+id/tvDetailOne" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDetailTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fiveDp"
+            android:hint="Noelle Chesnut Whitmore"
+
+            app:layout_constraintBottom_toTopOf="@+id/tvDetailThree"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailOne"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailOne" />
+        <!-- chat -->
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgChatTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sixTeenDp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvDetailTwo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/tvDetailTwo"
+            app:layout_constraintTop_toTopOf="@+id/tvDetailTwo" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDetailThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fiveDp"
+            android:hint="Drue Kataoka"
+            app:layout_constraintBottom_toTopOf="@+id/tvDeatailFour"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailTwo"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailTwo" />
+        <!-- chat -->
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgChatThree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/sixTeenDp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvDetailThree"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toEndOf="@+id/tvDetailThree"
+            app:layout_constraintTop_toTopOf="@+id/tvDetailThree" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDeatailFour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/tenDp"
+            android:hint="Bomani X"
+            app:layout_constraintBottom_toTopOf="@+id/imgGroup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintStart_toStartOf="@+id/tvDetailTwo"
+            app:layout_constraintTop_toBottomOf="@+id/tvDetailThree" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tenDp"
+            android:layout_marginTop="@dimen/tenDp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/imgProfileOne"
+            app:layout_constraintTop_toBottomOf="@id/tvDeatailFour"
+            app:srcCompat="@drawable/peoples" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvConnectionCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/tenDp"
+            android:text="520"
+            app:layout_constraintBottom_toBottomOf="@+id/imgGroup"
+            app:layout_constraintStart_toEndOf="@+id/imgGroup"
+           />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgCount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/imgGroup"
+            android:layout_marginStart="@dimen/fortyDp"
+            app:layout_constraintStart_toEndOf="@+id/tvConnectionCount"
+          />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCount"
+            android:layout_width="21dp"
+            android:layout_height="19dp"
+            android:layout_marginStart="@dimen/tenDp"
+            android:hint="12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgCount"
+           />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

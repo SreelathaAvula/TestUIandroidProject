@@ -32,7 +32,7 @@ class UsersActivity : AppCompatActivity() {
                     val outPut=userDetails?.results
                  /*   val results: ArrayList<UserDetails.Result>? = userDetails.results*/
                     if(outPut != null){
-                        userAdapter = UserAdapter(outPut) // Set the userAdapter again
+                        userAdapter = UserAdapter() // Set the userAdapter again
 
                         recycleList.adapter=userAdapter
                         recycleList.layoutManager=LinearLayoutManager(this@UsersActivity)

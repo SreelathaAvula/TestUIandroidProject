@@ -4,18 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="@dimen/twenty"
-
-    android:layout_marginEnd="@dimen/twenty"
-    android:padding="@dimen/twenty"
-
+    android:layout_marginStart="@dimen/twentyDp"
+    android:layout_marginEnd="@dimen/twentyDp"
+    android:padding="@dimen/twentyDp"
     tools:context=".view.MobileAuthenticationActivity">
-
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivClose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/sixTeen"
+        android:layout_marginTop="@dimen/sixTeenDp"
         android:src="@drawable/close_icon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,7 +22,7 @@
         android:id="@+id/imageIcon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/twenty"
+        android:layout_marginTop="@dimen/twentyDp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ivClose"
@@ -36,12 +33,12 @@
         android:id="@+id/etPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/twenty"
+        android:layout_marginTop="@dimen/twentyDp"
         android:hint="@string/phoneNumberHint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:drawableStart="@drawable/phone_icon"
-        android:drawablePadding="@dimen/sixTeen"
+        android:drawablePadding="@dimen/sixTeenDp"
         app:layout_constraintTop_toBottomOf="@id/imageIcon"
         />
 
@@ -50,7 +47,7 @@
         style="@style/otpButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/twenty"
+        android:layout_marginTop="@dimen/twentyDp"
         android:text="@string/otpHint"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,8 +59,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btOtp"
-        android:layout_marginTop="@dimen/forty"
-        android:layout_marginBottom="@dimen/forty"
+        android:layout_marginTop="@dimen/fortyDp"
+        android:layout_marginBottom="@dimen/fortyDp"
      />
 
 
@@ -71,19 +68,18 @@
         android:id="@+id/etOtp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/forty"
+        android:layout_marginTop="@dimen/fortyDp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/progressBar"
   />
-
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btverify"
         style="@style/submitButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/twenty"
+        android:layout_marginTop="@dimen/twentyDp"
         android:text="@string/submitText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

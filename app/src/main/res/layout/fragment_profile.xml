@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/sixTeenDp"
+    tools:context=".view.ProfileFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvProfile"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:padding="@dimen/twentyDp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_share"
+        android:padding="@dimen/twentyDp"
+        app:layout_constraintEnd_toStartOf="@id/imgSetting"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgSetting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/twentyDp"
+        android:src="@drawable/ic_setting"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgProfileImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/sixTeenDp"
+        android:paddingEnd="0dp"
+        android:paddingTop="@dimen/fortyDp"
+        android:src="@mipmap/ic_man_profile_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tvProfile" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:textSize="@dimen/sixTeenSp"
+        android:paddingStart="@dimen/sixTeenDp"
+        android:text="@string/tvManFullName"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgProfileImage" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvIdName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/sixTeenDp"
+        android:paddingBottom="@dimen/twentyDp"
+        android:text="@string/tvManProfileId"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/followers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingStart="@dimen/sixTeenDp"
+        android:paddingBottom="@dimen/fortyDp"
+        android:text="@string/tvFollowers"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvIdName" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/following"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingStart="@dimen/sixTeenDp"
+        android:text="@string/tvFollowingText"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/followers"
+        app:layout_constraintTop_toTopOf="@id/followers" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvBio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/fifteenDp"
+        android:text="@string/profileText"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/followers" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgTwitter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/twentyDp"
+        android:paddingStart="@dimen/sixTeenDp"
+        android:src="@drawable/ic_twitter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvBio" />
+
+    <androidx.appcompat.widget.AppCompatCheckedTextView
+        android:id="@+id/tvTwitterId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/twentyDp"
+        android:paddingStart="@dimen/tenDp"
+        android:text="@string/twitterIdText"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/imgTwitter"
+        app:layout_constraintTop_toBottomOf="@id/tvBio" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgInstagram"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/threeDp"
+        android:paddingStart="@dimen/fortyDp"
+        android:src="@drawable/ic_instagram"
+        app:layout_constraintStart_toEndOf="@id/tvTwitterId"
+        app:layout_constraintTop_toTopOf="@id/tvTwitterId" />
+
+    <androidx.appcompat.widget.AppCompatCheckedTextView
+        android:id="@+id/tvInstagram"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/twentyDp"
+        android:paddingStart="@dimen/tenDp"
+        android:text="@string/instagramText"
+        android:textColor="@color/skyBlue"
+        app:layout_constraintStart_toEndOf="@id/imgInstagram"
+        app:layout_constraintTop_toBottomOf="@id/tvBio" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imgSecondProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tenDp"
+        android:src="@mipmap/ic_second_man_profile_foreground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgTwitter" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvJoinedDateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/fortyDp"
+        android:text="Joined 25th March,2020"
+        app:layout_constraintStart_toEndOf="@id/imgSecondProfile"
+        app:layout_constraintTop_toBottomOf="@id/imgInstagram" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvInvitesText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tenDp"
+        android:text="Invited by PaulWalker"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/imgSecondProfile"
+        app:layout_constraintTop_toBottomOf="@id/tvJoinedDateText" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMemberText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/twentyDp"
+        android:paddingStart="@dimen/fifteenDp"
+        android:text="@string/tvMemberText"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgSecondProfile"
+        />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivBoxOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sixTeenDp"
+        android:paddingStart="@dimen/fifteenSp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvMemberText"
+        android:src="@drawable/ic_boxone"
+        />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivAddBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sixTeenDp"
+        android:paddingStart="@dimen/tenDp"
+        app:layout_constraintStart_toEndOf="@id/ivBoxOne"
+        app:layout_constraintTop_toBottomOf="@id/tvMemberText"
+        android:src="@drawable/ic_add_box"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+

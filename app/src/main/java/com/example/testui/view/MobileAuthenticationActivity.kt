@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseAuth
 import java.util.concurrent.TimeUnit
 
 class MobileAuthenticationActivity : AppCompatActivity() {
-    val TAG = MobileAuthenticationActivity::class.java.simpleName
+    val TAG: String = MobileAuthenticationActivity::class.java.simpleName
 
     private lateinit var binding: ActivityMobileAuthenticationBinding
     val auth = FirebaseAuth.getInstance()
@@ -81,7 +81,7 @@ class MobileAuthenticationActivity : AppCompatActivity() {
             if (task.isSuccessful) {
                 binding.progressBar.visibility=View.GONE
 
-                startActivity(Intent(this@MobileAuthenticationActivity, HomeActivity::class.java))
+                startActivity(Intent(this@MobileAuthenticationActivity, MainActivity::class.java))
                 binding.etOtp.visibility= View.GONE
                 binding.btverify.visibility= View.GONE
             } else {
