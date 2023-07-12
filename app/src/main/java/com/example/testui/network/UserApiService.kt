@@ -7,7 +7,5 @@ import retrofit2.http.Query
 
 interface UserApiService {
     @GET("/api/")
-    fun getUserData(@Query("results") results : Int): Call<UserDetails>
-
-
+    fun getAllUserDetails(@Query("results") results : Int): Call<UserDetails>
 }
