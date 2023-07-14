@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- number Dp values-->
+    <dimen name="zeroDp">0dp</dimen>
     <dimen name="threeDp">3dp</dimen>
     <dimen name="fiveDp">5dp</dimen>
     <dimen name="tenDp">10dp</dimen>

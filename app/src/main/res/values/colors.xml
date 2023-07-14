@@ -17,4 +17,6 @@
     <color name="secondPrimaryWhite">#858AA8</color>
     <color name="orange">#DD4D2C</color>
     <color name="skyBlue">#0073D6</color>
+    <color name="red">#F50D0D</color>
+    <color name="brandColor">#4267B2</color>
 </resources>

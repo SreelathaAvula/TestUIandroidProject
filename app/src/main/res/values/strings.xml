@@ -48,4 +48,6 @@
     <string name="tvManProfileId">\@sultanalmaadeed</string>
     <string name="twitterIdText">almaadeed</string>
     <string name="instagramText">Add Instagram</string>
+    <string name="required">Required</string>
+    <string name="emailPlaceHolderText">ex: abc@xyz.com</string>
 </resources>

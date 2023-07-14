@@ -11,8 +11,7 @@ import retrofit2.Response
 
 class UsersViewModel:ViewModel() {
     companion object{
-        val TAG =UsersViewModel::class.java.simpleName
-
+        private val TAG =UsersViewModel::class.java.simpleName
     }
 
     val userDetailsLiveData= MutableLiveData<UserDetails>()
