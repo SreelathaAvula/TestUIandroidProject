@@ -50,13 +50,10 @@ class SignUpActivity : AppCompatActivity() {
         binding.btnSignUpContinue.setOnClickListener {
             if (firstName && phone && email && password && confirmPassword && checkBox) {
                 saveToDatabase()
-
-
             }
             else{
                 Toast.makeText(this@SignUpActivity,"check all the details correctly ",Toast.LENGTH_SHORT).show()
             }
-
         }
     }
 
@@ -83,9 +80,7 @@ class SignUpActivity : AppCompatActivity() {
                 etEmail.text = null
                 etPassword.text = null
                 etConfirmPassword.text = null
-
                 checkbox.isChecked = false
-
                 tilFirstName.helperText = "Required"
                 tilEmail.helperText = "Required"
                 tilPhoneNumber.helperText = "Required"
@@ -95,7 +90,6 @@ class SignUpActivity : AppCompatActivity() {
         }.addOnFailureListener{
             Log.i(TAG, " failed to saveToDatabase: ")
             Toast.makeText(this@SignUpActivity,"Failed added  to the database",Toast.LENGTH_SHORT).show()
-
         }
 
     }
@@ -162,8 +156,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun phoneNumberFocusValidation(hasFocus: Boolean) {
         if (hasFocus) {
-            binding.tilPhoneNumber.helperText = "mobile should contain 10 digits"
-
+            binding.tilPhoneNumber.helperText = if (binding.etPhone.text.toString().isEmpty()) "mobile should contain 10 digits" else null
         } else {
             binding.tilPhoneNumber.helperText = null
             if (binding.etPhone.text.toString() == "") {

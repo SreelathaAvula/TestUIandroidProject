@@ -12,6 +12,7 @@
         android:layout_marginEnd="@dimen/sixTeenDp"
         android:paddingTop="@dimen/sixTeenDp"
         tools:context=".view.LoginActivity">
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivClose"
             android:layout_width="wrap_content"
@@ -19,7 +20,7 @@
             android:layout_marginTop="@dimen/twentyDp"
             android:src="@drawable/ic_close"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/imageIcon"
@@ -29,44 +30,61 @@
             android:src="@drawable/faithconx_icon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ivClose"/>
+            app:layout_constraintTop_toBottomOf="@id/ivClose" />
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/etEmail"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etLoginEmailContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/sixTeenDp"
-            android:drawableStart="@drawable/profile"
-            android:drawablePadding="@dimen/sixTeenDp"
+            app:errorEnabled="true"
             android:hint="@string/emailHint"
-            android:fontFamily="@font/pt_sans"
+            app:startIconDrawable="@drawable/profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageIcon" />
+            app:layout_constraintTop_toBottomOf="@id/imageIcon">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/etPassword"
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sixTeenDp"
+                android:background="@color/white"
+                android:drawablePadding="@dimen/sixTeenDp"
+                android:fontFamily="@font/pt_sans"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etLoginPasswordContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/sixTeenDp"
-            android:drawableStart="@drawable/password"
-            android:drawablePadding="@dimen/sixTeenDp"
-            android:hint="@string/passwordHint"
-            android:fontFamily="@font/pt_sans"
+            app:startIconDrawable="@drawable/email_icon"
             app:layout_constraintEnd_toEndOf="parent"
+            android:hint="@string/passwordHint"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etEmail" />
+            app:layout_constraintTop_toBottomOf="@id/etLoginEmailContainer">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/sixTeenDp"
+                android:background="@color/white"
+                android:drawablePadding="@dimen/sixTeenDp"
+                android:fontFamily="@font/pt_sans"
+               />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvForgotText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/pt_sans"
             android:text="@string/forgotText"
             android:textAlignment="viewEnd"
-            android:fontFamily="@font/pt_sans"
             android:textColor="@color/blue"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etPassword" />
+            app:layout_constraintTop_toBottomOf="@id/etLoginPasswordContainer" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btEmailLogin"
@@ -78,8 +96,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvForgotText" />
-
-
 
         <View
             android:id="@+id/viewLineStart"
@@ -102,6 +118,7 @@
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="@id/viewLineStart"
             app:layout_constraintTop_toBottomOf="@id/btEmailLogin" />
+
         <View
             android:id="@+id/endLine"
             android:layout_width="0dp"
@@ -112,6 +129,7 @@
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintStart_toEndOf="@id/TvOr"
             app:layout_constraintTop_toBottomOf="@id/btEmailLogin" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btFacebook"
             style="@style/facebookButton"
@@ -151,6 +169,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btGoogle" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvAccount"
             android:layout_width="wrap_content"
@@ -167,11 +186,11 @@
             android:id="@+id/tvSignup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sixTeenDp"
             android:text="@string/tvSignup"
             android:textColor="@color/orange"
-            android:layout_marginTop="@dimen/sixTeenDp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvAccount"
-            app:layout_constraintTop_toBottomOf="@id/btPhone"/>
+            app:layout_constraintTop_toBottomOf="@id/btPhone" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
