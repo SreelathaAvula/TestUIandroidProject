@@ -6,6 +6,7 @@ import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.testui.R
 import com.example.testui.databinding.ActivitySignUpBinding
 import com.example.testui.model.UserInfo
 import com.google.firebase.database.DatabaseReference
@@ -21,9 +22,7 @@ class SignUpActivity : AppCompatActivity() {
     var email: Boolean = false
     var confirmPassword: Boolean = false
     var checkBox:Boolean=false
-    companion object {
-        private val TAG = SignUpActivity::class.java.simpleName
-    }
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,15 +33,18 @@ class SignUpActivity : AppCompatActivity() {
         binding.ivClose.setOnClickListener {
             startActivity(Intent(this@SignUpActivity, LoginActivity::class.java))
         }
-
-        binding.checkbox.setOnClickListener {
-            if (binding.checkbox.isChecked) {
-                Toast.makeText(this, "checkbox checked accepted terms and conditions", Toast.LENGTH_SHORT).show()
+        binding.checkbox.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                Toast.makeText(
+                    this,
+                    getString(R.string.checked_text),
+                    Toast.LENGTH_SHORT
+                ).show()
                 checkBox = true
-            }
-            else{
+            } else {
                 checkBox = false
-                Toast.makeText(this, "please accept terms and conditions ...", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.unchecked_text), Toast.LENGTH_SHORT)
+                    .show()
             }
         }
 
@@ -52,7 +54,7 @@ class SignUpActivity : AppCompatActivity() {
                 saveToDatabase()
             }
             else{
-                Toast.makeText(this@SignUpActivity,"check all the details correctly ",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@SignUpActivity,getString(R.string.signup_error_text),Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -70,8 +72,7 @@ class SignUpActivity : AppCompatActivity() {
 
         val user=UserInfo(firstName,lastName,email,password, phone)
         databaseReference.child(firstName).setValue(user).addOnSuccessListener {
-            Log.i(TAG, "saveToDatabase: ")
-            Toast.makeText(this@SignUpActivity,"Successfully added  to the database",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@SignUpActivity,getString(R.string.signup_success_datbase_text),Toast.LENGTH_SHORT).show()
             startActivity(Intent(this@SignUpActivity, LoginActivity::class.java))
 
             binding.apply {
@@ -81,15 +82,14 @@ class SignUpActivity : AppCompatActivity() {
                 etPassword.text = null
                 etConfirmPassword.text = null
                 checkbox.isChecked = false
-                tilFirstName.helperText = "Required"
-                tilEmail.helperText = "Required"
-                tilPhoneNumber.helperText = "Required"
-                tilPassword.helperText = "Required"
-                tilConfirmPassword.helperText = "Required"
+                tilFirstName.helperText =getString(R.string.required)
+                tilEmail.helperText = getString(R.string.required)
+                tilPhoneNumber.helperText = getString(R.string.required)
+                tilPassword.helperText = getString(R.string.required)
+                tilConfirmPassword.helperText = getString(R.string.required)
             }
         }.addOnFailureListener{
-            Log.i(TAG, " failed to saveToDatabase: ")
-            Toast.makeText(this@SignUpActivity,"Failed added  to the database",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@SignUpActivity,getString(R.string.database_failed_text),Toast.LENGTH_SHORT).show()
         }
 
     }
@@ -122,11 +122,10 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun firstNmeFocus(hasFocus: Boolean) {
         if (hasFocus) {
-            binding.tilFirstName.helperText = "name can not be empty"
         } else {
             binding.tilFirstName.helperText = null
             if (binding.etFirstName.text.toString() == "") {
-                binding.tilFirstName.helperText = " name can not be Empty!!!"
+                binding.tilFirstName.error = " name can not be Empty!!!"
             } else {
                 firstName = true
                 binding.tilFirstName.helperText = null
@@ -136,36 +135,32 @@ class SignUpActivity : AppCompatActivity() {
     }
     private fun emailFocusValidation(hasFocus: Boolean) {
         if (hasFocus) {
-            binding.tilEmail.helperText = "email should match with pattern"
 
         } else {
             binding.tilEmail.helperText = null
             if (binding.etEmail.text.toString() == "") {
-                binding.tilEmail.helperText = "Email can not be Empty!!!"
+                binding.tilEmail.error = getString(R.string.empty_email_text)
             } else if (!Patterns.EMAIL_ADDRESS.matcher(binding.etEmail.text.toString())
                     .matches()
             ) {
-                binding.tilEmail.helperText = "Invalid mail address"
+                binding.tilEmail.helperText = getString(R.string.invalid_mail_text)
             } else {
                 email = true
             }
         }
-
-
     }
 
     private fun phoneNumberFocusValidation(hasFocus: Boolean) {
         if (hasFocus) {
-            binding.tilPhoneNumber.helperText = if (binding.etPhone.text.toString().isEmpty()) "mobile should contain 10 digits" else null
         } else {
             binding.tilPhoneNumber.helperText = null
             if (binding.etPhone.text.toString() == "") {
-                binding.tilPhoneNumber.helperText = "mobile number can not be empty!!!"
+                binding.tilPhoneNumber.error = getString(R.string.mobilr_empty_text)
             } else if (binding.etPhone.text.toString().length < 10) {
-                binding.tilPhoneNumber.helperText = "should contain 10 digits!!!1"
+                binding.tilPhoneNumber.error = getString(R.string.mobile_10_digit_text)
             } else if (binding.etPhone.text.toString().length > 10) {
-                binding.tilPhoneNumber.helperText =
-                    "No More!!! Mobile can take only 1O digits !!!"
+                binding.tilPhoneNumber.error =
+                    getString(R.string.no_more_text)
             } else {
                 phone = true
             }
@@ -175,29 +170,28 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun passwordFocusValidation(hasFocus: Boolean) {
         if (hasFocus) {
-            binding.tilPassword.helperText = "password must contain 15 characters"
         } else {
             binding.tilPassword.helperText = null
             if (binding.etPassword.text.toString() == "") {
-                binding.tilPassword.helperText = "Password  can not be empty!!!"
+                binding.tilPassword.error = getString(R.string.password_empty_text)
             } else if (binding.etPassword.text.toString().length < 15) {
-                binding.tilPassword.helperText = "should contain 15 alpha Numeric values!!!"
+                binding.tilPassword.error = getString(R.string.emil_text)
             } else if (binding.etPassword.text.toString().length == 15) {
                 if (!binding.etPassword.text.toString().matches(".*[A-Z].*".toRegex())) {
-                    binding.tilPassword.helperText = "Must contain 1 Upper Case Character"
+                    binding.tilPassword.error = getString(R.string.upper_case_text)
                 }
                 if (!binding.etPassword.text.toString().matches(".*[a-z].*".toRegex())) {
-                    binding.tilPassword.helperText = "Must contain 1 lower Case Character"
+                    binding.tilPassword.error = getString(R.string.lower_case_text)
                 }
                 if (binding.etPassword.text.toString()
                         .matches(".*[.,)(%!?*/{}-].*".toRegex())
                 ) {
-                    binding.tilPassword.helperText =
-                        "can not contain .,)(%!?*/{}- these symbols in your password"
+                    binding.tilPassword.error =
+                        getString(R.string.not_special_symbol_text)
                 }
                 if (!binding.etPassword.text.toString().matches(".*[@#$&^+=].*".toRegex())) {
-                    binding.tilPassword.helperText =
-                        "Must contain 1  special Symbols from this list @#\$&^+="
+                    binding.tilPassword.error =
+                        getString(R.string.special_symbol_text)
                 } else {
                     password = true
                 }
@@ -207,14 +201,13 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun confirmPasswordValidation(hasFocus: Boolean) {
         if (hasFocus) {
-                binding.tilConfirmPassword.helperText = "confirm password should match with password"
 
         } else {
             binding.tilConfirmPassword.helperText = null
             if (binding.etPassword.text.toString()!=(binding.etConfirmPassword.text.toString())
             ) {
                 binding.tilConfirmPassword.helperText =
-                    "confirm password is not matching  with password"
+                    getString(R.string.password_not_matching_text)
             } else {
                 confirmPassword = true
                 binding.tilConfirmPassword.helperText =null

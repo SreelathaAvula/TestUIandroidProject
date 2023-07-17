@@ -26,22 +26,25 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
     override fun onClick(view: View?) {
         when(view?.id){
-           // R.id.homeButton->placeFragmentPage()
-            R.id.homeButton->reDirectToHomePage()
+            R.id.homeButton->placeFragmentPage()
             R.id.profileButton->placeProfileFragmentPage()
         }
     }
-
-    private fun reDirectToHomePage() {
-        startActivity(Intent(this@MainActivity,UsersActivity::class.java))
-    }
-
     private fun placeFragmentPage() {
         var fragment = HomeFragment()
         supportFragmentManager.beginTransaction().replace(R.id.fragmentMainActivity, fragment).commit()
+        binding.nameIcon.visibility = View.GONE
+        binding.mailNotification.visibility = View.GONE
+        binding.starNotify.visibility = View.GONE
+        binding.imgNotification.visibility = View.GONE
+
     }
     private fun placeProfileFragmentPage() {
         var fragment = ProfileFragment()
         supportFragmentManager.beginTransaction().replace(R.id.fragmentMainActivity, fragment).commit()
+       binding.nameIcon.visibility = View.GONE
+       binding.mailNotification.visibility = View.GONE
+        binding.starNotify.visibility = View.GONE
+        binding.imgNotification.visibility = View.GONE
     }
 }

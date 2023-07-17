@@ -35,11 +35,10 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="users_details">tvUser</string>
-    <string name="profileText">Founder at ENVST\n
-        Chairman SARKU 8345m\n
-        Travelers 70 countries\n
-        Doha .LosAngeles
-    </string>
+    <string name="profileText">Founder at ENVST</string>
+    <string name="tvChairmanText">Chairman $ARKU $345m</string>
+    <string name="tvTravelingText"> Travelers +70 countries</string>
+    <string name="tvCountryText">Doha .LosAngeles</string>
     <string name="tvProfile">PROFILE</string>
     <string name="tvFollowers">3.2K followers</string>
     <string name="tvFollowingText">409 Following</string>
@@ -48,6 +47,37 @@
     <string name="tvManProfileId">\@sultanalmaadeed</string>
     <string name="twitterIdText">almaadeed</string>
     <string name="instagramText">Add Instagram</string>
-    <string name="required">Required</string>
+    <string name="required">*Required</string>
     <string name="emailPlaceHolderText">ex: abc@xyz.com</string>
+    <string name="recycler_title">CHURCH OF ATLANTA</string>
+    <string name="recycler_subtitle">Should We All Pray Everyday</string>
+    <string name="detail_one_text">Leiti Hsu</string>
+    <string name="detail_two_text">Noelle Chesnut Whitmore</string>
+    <string name="detail_three">Drue Kataoka</string>
+    <string name="detail_four_text">Bomani X</string>
+    <string name="followers_text">520</string>
+    <string name="following_text">12</string>
+    <string name="tvJoinedText">Joined 25th March,2020</string>
+    <string name="invitedText">Invited by PaulWalker</string>
+    <string name="logout_text">logout successful</string>
+    <string name="mail_passowrd_empty_text">mail and password  should  not be empty</string>
+    <string name="invalid_email_or_password">Invalid email or password</string>
+    <string name="login_successful_text">Login successful!</string>
+    <string name="unchecked_text">please accept terms and conditions ...</string>
+    <string name="checked_text">checkbox checked accepted terms and conditions</string>
+    <string name="signup_error_text">"check all the details correctly "</string>
+    <string name="signup_success_datbase_text">Successfully added  to the database</string>
+    <string name="database_failed_text">" failed to saveToDatabase: "</string>
+    <string name="empty_email_text">Email can not be Empty!!!</string>
+    <string name="invalid_mail_text">Invalid mail address</string>
+    <string name="mobilr_empty_text">mobile number can not be empty!!!</string>
+    <string name="mobile_10_digit_text">should contain 10 digits!!!1</string>
+    <string name="no_more_text">No More!!</string>
+    <string name="password_empty_text">Password  can not be empty!!!</string>
+    <string name="emil_text">should contain 15 alpha Numeric values!!!</string>
+    <string name="upper_case_text">Must contain 1 Upper Case Character</string>
+    <string name="lower_case_text">Must contain 1 lower Case Character</string>
+    <string name="not_special_symbol_text">can not contain .,)(%!?*/{}- these symbols in your password</string>
+    <string name="special_symbol_text"><![CDATA[Must contain 1  special Symbols from this list @#$&^+=]]></string>
+    <string name="password_not_matching_text">confirm password is not matching  with password</string>
 </resources>
