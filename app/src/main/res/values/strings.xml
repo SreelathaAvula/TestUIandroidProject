@@ -24,7 +24,6 @@
     <string name="otpHint">GET OTP</string>
     <string name="submitText">Verify</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_home">HomeActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -74,10 +73,16 @@
     <string name="mobile_10_digit_text">should contain 10 digits!!!1</string>
     <string name="no_more_text">No More!!</string>
     <string name="password_empty_text">Password  can not be empty!!!</string>
-    <string name="emil_text">should contain 15 alpha Numeric values!!!</string>
+    <string name="password_text">should contain 15 alpha Numeric values!!!</string>
     <string name="upper_case_text">Must contain 1 Upper Case Character</string>
     <string name="lower_case_text">Must contain 1 lower Case Character</string>
     <string name="not_special_symbol_text">can not contain .,)(%!?*/{}- these symbols in your password</string>
     <string name="special_symbol_text"><![CDATA[Must contain 1  special Symbols from this list @#$&^+=]]></string>
     <string name="password_not_matching_text">confirm password is not matching  with password</string>
+    <string name="invalidEmailText">Invalid email</string>
+    <string name="invalidPasswordText">Invalid password</string>
+    <string name="enterOtpText">Enter Otp</string>
+    <string name="generate_otp">Generate Otp</string>
+    <string name="log_in_with_otp_text">LOG IN WITH OTP</string>
+    <string name="log_in_with_email_text">Log in with Email</string>
 </resources>

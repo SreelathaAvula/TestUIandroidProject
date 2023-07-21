@@ -16,7 +16,7 @@
             android:id="@+id/ivClose"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:layout_marginTop="@dimen/fortyDp"
+            android:layout_marginTop="@dimen/thirtyDp"
             android:src="@drawable/ic_close"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -26,23 +26,45 @@
             style="@style/signupStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/fortyDp"
+            android:layout_marginTop="@dimen/twentyDp"
             android:text="@string/signupText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/ivClose" />
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profileImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:civ_circle_background_color="@color/white"
+            android:src="@drawable/profile"
+            app:civ_border_color="@color/brandColor"
+            app:civ_border_width="@dimen/fiveDp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSignUp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/changeProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="@color/white"
+            android:src="@drawable/ic_camera"
+            app:layout_constraintBottom_toBottomOf="@id/profileImage"
+            app:layout_constraintEnd_toEndOf="@id/profileImage" />
+
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/tilFirstName"
             android:layout_width="@dimen/zeroDp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/twentyDp"
             android:hint="@string/firstNameText"
-            app:helperText="@string/required"
             app:boxBackgroundColor="@color/white"
+            app:helperText="@string/required"
             app:helperTextTextColor="@color/secondPrimaryWhite"
             app:layout_constraintEnd_toStartOf="@id/tilSecondName"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvSignUp"
+            app:layout_constraintTop_toBottomOf="@id/profileImage"
             app:startIconDrawable="@drawable/profile">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -63,7 +85,7 @@
             app:helperTextTextColor="@color/secondPrimaryWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tilFirstName"
-            app:layout_constraintTop_toBottomOf="@id/tvSignUp"
+            app:layout_constraintTop_toBottomOf="@id/profileImage"
             app:startIconDrawable="@drawable/profile">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -81,10 +103,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxBackgroundColor="@color/white"
-            app:helperTextTextColor="@color/secondPrimaryWhite"
-            app:helperText="@string/required"
-            app:layout_constraintEnd_toEndOf="parent"
             app:errorEnabled="true"
+            app:helperText="@string/required"
+            app:helperTextTextColor="@color/secondPrimaryWhite"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilSecondName"
             app:placeholderText="@string/emailPlaceHolderText"
@@ -121,13 +143,13 @@
             android:hint="@string/phoneNumber"
             app:boxBackgroundColor="@color/white"
             app:counterEnabled="true"
+            app:errorEnabled="true"
             app:helperText="@string/required"
             app:helperTextTextColor="@color/secondPrimaryWhite"
-            app:errorEnabled="true"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/country_code"
             app:layout_constraintTop_toBottomOf="@id/tilEmail"
-            app:startIconDrawable="@drawable/phone_icon">
+            app:startIconDrawable="@drawable/ic_phone">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPhone"
@@ -146,13 +168,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/passwordHint"
-            app:helperText="@string/required"
             app:boxBackgroundColor="@color/white"
             app:endIconMode="password_toggle"
+            app:errorEnabled="true"
+            app:helperText="@string/required"
             app:helperTextEnabled="true"
             app:helperTextTextColor="@color/secondPrimaryWhite"
             app:layout_constraintEnd_toEndOf="parent"
-            app:errorEnabled="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilPhoneNumber"
             app:startIconDrawable="@drawable/password">
@@ -162,8 +184,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/twentyDp"
-                android:maxLength="15"
                 android:inputType="textPassword"
+                android:maxLength="15"
                 app:boxBackgroundColor="@color/white" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -174,12 +196,12 @@
             android:layout_height="wrap_content"
             app:boxBackgroundColor="@color/white"
             app:endIconMode="password_toggle"
+            app:errorEnabled="true"
+            app:helperText="@string/required"
             app:helperTextEnabled="true"
             app:helperTextTextColor="@color/secondPrimaryWhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:errorEnabled="true"
-            app:helperText="@string/required"
             app:layout_constraintTop_toBottomOf="@id/tilPassword"
             app:startIconDrawable="@drawable/password">
 

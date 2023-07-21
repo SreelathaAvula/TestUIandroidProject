@@ -36,12 +36,13 @@
             android:id="@+id/etLoginEmailContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:errorEnabled="true"
             android:hint="@string/emailHint"
-            app:startIconDrawable="@drawable/profile"
+            app:errorEnabled="true"
+            app:helperText="@string/required"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageIcon">
+            app:layout_constraintTop_toBottomOf="@id/imageIcon"
+            app:startIconDrawable="@drawable/ic_email">
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/etEmail"
@@ -50,19 +51,21 @@
                 android:layout_marginTop="@dimen/sixTeenDp"
                 android:background="@color/white"
                 android:drawablePadding="@dimen/sixTeenDp"
-                android:fontFamily="@font/pt_sans"
-                />
+                android:fontFamily="@font/pt_sans" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/etLoginPasswordContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:startIconDrawable="@drawable/ic_email"
-            app:layout_constraintEnd_toEndOf="parent"
             android:hint="@string/passwordHint"
+            app:endIconMode="password_toggle"
+            app:errorEnabled="true"
+            app:helperText="@string/required"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/etLoginEmailContainer">
+            app:layout_constraintTop_toBottomOf="@id/etLoginEmailContainer"
+            app:startIconDrawable="@drawable/password">
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/etPassword"
@@ -71,8 +74,7 @@
                 android:layout_marginTop="@dimen/sixTeenDp"
                 android:background="@color/white"
                 android:drawablePadding="@dimen/sixTeenDp"
-                android:fontFamily="@font/pt_sans"
-               />
+                android:fontFamily="@font/pt_sans" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -91,8 +93,8 @@
             style="@style/loginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/primaryWhite"
             android:layout_marginTop="@dimen/sixTeenDp"
+            android:background="@color/primaryWhite"
             android:text="@string/logInText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -193,5 +195,92 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvAccount"
             app:layout_constraintTop_toBottomOf="@id/btPhone" />
+
+
+        <!--  -login otp-->
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/country_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/tenDp"
+            app:ccp_autoDetectCountry="true"
+            app:ccp_defaultNameCode="IND"
+            android:visibility="invisible"
+            app:ccp_showFlag="true"
+            app:ccp_showNameCode="true"
+            app:ccp_textSize="@dimen/sixTeenDp"
+            app:layout_constraintBottom_toBottomOf="@id/etTilPhoneNumber"
+            app:layout_constraintEnd_toStartOf="@id/etTilPhoneNumber"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageIcon" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etTilPhoneNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/phoneNumberHint"
+            app:boxBackgroundColor="@color/white"
+            app:errorEnabled="true"
+            android:visibility="invisible"
+            app:helperText="@string/required"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/country_code"
+            app:layout_constraintTop_toBottomOf="@id/imageIcon"
+            app:startIconDrawable="@drawable/ic_phone">
+            <androidx.appcompat.widget.AppCompatEditText
+
+                android:id="@+id/etFragmentPhoneEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvGenerateOtp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="invisible"
+            android:text="@string/generate_otp"
+            android:textSize="@dimen/fifteenSp"
+            app:layout_constraintTop_toBottomOf="@id/etTilPhoneNumber"
+            app:layout_constraintBottom_toTopOf="@id/etOtpContainer"
+            />
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:id="@+id/etOtpContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:helperText="@string/required"
+            android:hint="@string/enterOtpText"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:boxBackgroundColor="@color/white"
+            app:layout_constraintTop_toBottomOf="@id/tvGenerateOtp"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etOtp"
+                android:layout_width="match_parent"
+                android:visibility="invisible"
+                android:layout_height="wrap_content"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btLoginOtp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="@string/log_in_with_otp_text"
+            android:textColor="@color/white"
+            android:visibility="invisible"
+            android:drawableStart="@drawable/ic_mobile"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingStart="@dimen/sixTeenDp"
+            android:paddingEnd="@dimen/zeroDp"
+            android:background="@color/brandColor"
+            app:layout_constraintTop_toBottomOf="@id/etOtpContainer"
+            app:layout_constraintBottom_toTopOf="@id/viewLineStart"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

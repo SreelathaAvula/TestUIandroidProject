@@ -14,7 +14,7 @@ class UsersViewModel:ViewModel() {
         private val TAG =UsersViewModel::class.java.simpleName
     }
 
-    val userDetailsLiveData= MutableLiveData<UserDetails>()
+    val userDetailsLiveData= MutableLiveData<UserDetails?>()
      fun getAllUserDetails() {
         UsersApiClient().apiService.getAllUserDetails(5).enqueue(object : Callback<UserDetails>{
             override fun onResponse(call: Call<UserDetails>, response: Response<UserDetails>){
@@ -23,10 +23,12 @@ class UsersViewModel:ViewModel() {
                     Log.i(TAG, "onResponse: ${userDetails.toString()}")
                     userDetailsLiveData.postValue(userDetails!!)
                     Log.i(TAG, "onResponse:")
+
                 }
             }
             override fun onFailure(call: Call<UserDetails>,t: Throwable) {
                 Log.i(TAG, "onFailure: ${t.message}")
+                userDetailsLiveData.postValue(null)
             }
         })
     }

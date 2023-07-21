@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".view.LoginOtpFragment"
+    >
+
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/country_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/tenDp"
+        app:ccp_autoDetectCountry="true"
+        app:ccp_defaultNameCode="IND"
+        app:ccp_showFlag="true"
+        app:ccp_showNameCode="true"
+        app:ccp_textSize="@dimen/sixTeenDp"
+        app:layout_constraintBottom_toBottomOf="@id/etTilPhoneNumber"
+        app:layout_constraintEnd_toStartOf="@id/etTilPhoneNumber"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/etTilPhoneNumber"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/phoneNumberHint"
+        app:boxBackgroundColor="@color/white"
+        app:errorEnabled="true"
+        app:helperText="@string/required"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/country_code"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_phone">
+        <androidx.appcompat.widget.AppCompatEditText
+
+            android:id="@+id/etFragmentPhoneEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvGenerateOtp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/generate_otp"
+        android:textSize="@dimen/fifteenSp"
+        app:layout_constraintTop_toBottomOf="@id/etTilPhoneNumber"
+        app:layout_constraintBottom_toTopOf="@id/etOtpContainer"
+        />
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/etOtpContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:helperText="@string/required"
+        android:hint="@string/enterOtpText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:boxBackgroundColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/tvGenerateOtp"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etOtp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btLoginOtp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/log_in_with_otp_text"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/brandColor"
+        app:layout_constraintTop_toBottomOf="@id/etOtpContainer"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,13 +26,13 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder>(){
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val result = result[position]
-        holder.binding.title.text=result.name?.first
-        holder.binding.tvDetailOne.text=result.location?.city
-        holder.binding.tvDetailTwo.text=result.location?.state
-        holder.binding.tvDetailThree.text=result.location?.country
+        holder.binding.title.text=result.name?.first.toString()
+        holder.binding.tvDetailOne.text=result.location?.city.toString()
+        holder.binding.tvDetailTwo.text=result.location?.state.toString()
+        holder.binding.tvDetailThree.text=result.location?.country.toString()
         holder.binding.tvDetailFour.text=result.location?.postcode.toString()
         holder.binding.tvConnectionCount.text=result.dob?.age.toString()
-        holder.binding.tvCount.text=result.dob?.date
+        holder.binding.tvCount.text=result.dob?.date.toString()
     }
     class UserViewHolder( val binding:ListDetailsBinding) : RecyclerView.ViewHolder(binding.root)
 }

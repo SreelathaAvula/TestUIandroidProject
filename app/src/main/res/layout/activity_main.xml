@@ -48,10 +48,10 @@
     <FrameLayout
         android:id="@+id/fragmentMainActivity"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="@dimen/fiveDp"
         app:layout_constraintBottom_toTopOf="@id/homeButton"
-        app:layout_constraintEnd_toStartOf="@id/homeButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <androidx.appcompat.widget.AppCompatImageButton
@@ -60,11 +60,10 @@
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:src="@drawable/ic_home"
+        android:outlineSpotShadowColor="@color/secondPrimaryWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/searchButton"/>
-
-
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/profileButton"
         android:layout_width="wrap_content"

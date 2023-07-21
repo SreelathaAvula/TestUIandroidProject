@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.core.content.ContextCompat
 import com.example.testui.R
 import com.example.testui.databinding.ActivityMainBinding
 
@@ -26,8 +27,16 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
     override fun onClick(view: View?) {
         when(view?.id){
-            R.id.homeButton->placeFragmentPage()
-            R.id.profileButton->placeProfileFragmentPage()
+            R.id.homeButton-> {
+                binding.profileButton.setColorFilter(ContextCompat.getColor(this,R.color.secondPrimaryWhite))
+                binding.homeButton.setColorFilter(ContextCompat.getColor(this,R.color.brandColor))
+                placeFragmentPage()
+            }
+            R.id.profileButton-> {
+                binding.profileButton.setColorFilter(ContextCompat.getColor(this,R.color.brandColor))
+                binding.homeButton.setColorFilter(ContextCompat.getColor(this,R.color.secondPrimaryWhite))
+                placeProfileFragmentPage()
+            }
         }
     }
     private fun placeFragmentPage() {

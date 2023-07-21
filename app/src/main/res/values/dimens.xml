@@ -23,4 +23,5 @@
     <dimen name="seventeenSp">17sp</dimen>
     <dimen name="sixTeenSp">16sp</dimen>
     <dimen name="fifteenDp">15dp</dimen>
+    <dimen name="twentySp">20sp</dimen>
 </resources>
