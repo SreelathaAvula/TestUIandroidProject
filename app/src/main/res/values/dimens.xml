@@ -24,4 +24,5 @@
     <dimen name="sixTeenSp">16sp</dimen>
     <dimen name="fifteenDp">15dp</dimen>
     <dimen name="twentySp">20sp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

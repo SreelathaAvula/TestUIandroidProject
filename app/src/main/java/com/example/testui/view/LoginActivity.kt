@@ -13,11 +13,10 @@ import androidx.core.content.ContextCompat
 import com.example.testui.R
 import com.example.testui.databinding.ActivityLoginBinding
 import com.example.testui.model.UserInfo
+import com.example.testui.session.OtpLoginSession
+import com.example.testui.session.UserSession
 import com.google.firebase.FirebaseException
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.PhoneAuthCredential
-import com.google.firebase.auth.PhoneAuthOptions
-import com.google.firebase.auth.PhoneAuthProvider
+import com.google.firebase.auth.*
 import com.google.firebase.database.*
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
@@ -26,6 +25,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
     private var isOtp = false
     private val auth = FirebaseAuth.getInstance()
     var otpId = ""
+    lateinit var userSession: UserSession
+    private lateinit var session: OtpLoginSession
+    lateinit var userCredential: PhoneAuthCredential
+
 
     companion object {
         private val TAG = LoginActivity::class.java.simpleName
@@ -35,17 +38,27 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        userSession = UserSession(this)
+        userSession.createLoginSession()
+        session = OtpLoginSession(this)
+        session.createOtpLoginSession()
+        val userEmail = userSession.getSession()
+        val userPhoneNumber = session.getOtpSession()
+        if (userEmail != null || userPhoneNumber != null) {
+            startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        }
         databaseReference = FirebaseDatabase.getInstance()
             .getReferenceFromUrl("https://testui-authentication-default-rtdb.firebaseio.com/")
         setClickListener()
         focusValidation()
         setButtonVisible()
+        //generating otp here checking with no of digits if matching then validating no present in firebase then only
+        //generate otp
         binding.tvGenerateOtp.setOnClickListener {
-            var number = binding.etFragmentPhoneEditText.text.toString()
+            val number = binding.etFragmentPhoneEditText.text.toString()
             if (number.isNotEmpty()) {
-                if (number.length == 10)  {
+                if (number.length == 10) {
                     validateNumberWithFireBase()
-
                 } else {
                     Toast.makeText(this, "enter  10 digits", Toast.LENGTH_SHORT).show()
                 }
@@ -53,6 +66,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 Toast.makeText(this, "number should not be null", Toast.LENGTH_SHORT).show()
             }
         }
+        // after receiving otp  we are checking with credentials if everything is correct wwe are logging
         binding.btLoginOtp.setOnClickListener {
             if (binding.etFragmentPhoneEditText.text.toString() != "" && binding.etOtp.text.toString() != "") {
                 val enteredOtp = binding.etOtp.text.toString()
@@ -67,40 +81,40 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
-    private fun validateNumberWithFireBase() {
-        var number=binding.etFragmentPhoneEditText.text.toString()
-        databaseReference.child("Users").addListenerForSingleValueEvent(object :ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                for (userSnapshot in snapshot.children){
-                    val user=userSnapshot.getValue(UserInfo::class.java)
-                    if (user!=null && user.phoneNumber == number){
-                        number = "+91$number"
-                        val options=PhoneAuthOptions.newBuilder(auth)
-                            .setPhoneNumber(number)
-                            .setActivity(this@LoginActivity)
-                            .setTimeout(60L,TimeUnit.SECONDS)
-                            .setCallbacks(Callbacks)
-                            .build()
-                        PhoneAuthProvider.verifyPhoneNumber(options)
 
-                    }
-                    if (user==null){
-                        Toast.makeText(this@LoginActivity,"user is empty in the database",Toast.LENGTH_SHORT).show()
-                    }
-                    else{
-                        Toast.makeText(this@LoginActivity,"user not registered",Toast.LENGTH_SHORT).show()
-                        binding.etFragmentPhoneEditText.text?.clear()
-                        binding.etOtp.text?.clear()
-                        binding.etTilPhoneNumber.error="number not registered"
+    //validate number with firebase
+    private fun validateNumberWithFireBase() {
+        var number = binding.etFragmentPhoneEditText.text.toString()
+        databaseReference.child("Users")
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    for (userSnapshot in snapshot.children) {
+                        val user = userSnapshot.getValue(UserInfo::class.java)
+                        if (user != null && user.phoneNumber == number) {
+                            number = "+91$number"
+                            val options = PhoneAuthOptions.newBuilder(auth)
+                                .setPhoneNumber(number)
+                                .setActivity(this@LoginActivity)
+                                .setTimeout(60L, TimeUnit.SECONDS)
+                                .setCallbacks(Callbacks)
+                                .build()
+                            PhoneAuthProvider.verifyPhoneNumber(options)
+                        }
+                        if (user == null) {
+                            Toast.makeText(
+                                this@LoginActivity,
+                                "user is empty in the database",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
                     }
                 }
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-                Toast.makeText(this@LoginActivity,"${error.message}",Toast.LENGTH_SHORT).show()
-            }
-
-        })
+                override fun onCancelled(error: DatabaseError) {
+                    Toast.makeText(this@LoginActivity, error.message, Toast.LENGTH_SHORT)
+                        .show()
+                }
+            })
     }
 
     val Callbacks =
@@ -111,9 +125,11 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             ) {
                 otpId = verificationId
             }
+
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
                 signInWithPhoneAuthCredential(credential)
             }
+
             override fun onVerificationFailed(e: FirebaseException) {
                 Toast.makeText(applicationContext, e.message, Toast.LENGTH_SHORT)
                     .show()
@@ -125,6 +141,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             btPhone.setOnClickListener(this@LoginActivity)
             tvSignup.setOnClickListener(this@LoginActivity)
             ivClose.setOnClickListener(this@LoginActivity)
+            btFacebook.setOnClickListener(this@LoginActivity)
         }
     }
 
@@ -138,7 +155,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             R.id.tvSignup -> startActivity(Intent(this@LoginActivity, SignUpActivity::class.java))
-            R.id.ivClose -> redirectToFlashPage()
+            R.id.ivClose -> redirectToSplashPage()
+            //  R.id.btFacebook -> loginWithFireBase()
         }
     }
 
@@ -181,22 +199,24 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                 for (userSnapshot in dataSnapshot.children) {
                     val user = userSnapshot.getValue(UserInfo::class.java)
                     if (user != null && user.email == email && user.password == password) {
+                        userSession.createLoginSession()
+                        userSession.saveSession(email)
                         startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                        finish()
                         Toast.makeText(
                             this@LoginActivity,
                             "redirect to main page or homepage",
                             Toast.LENGTH_SHORT
                         ).show()
-                    }
-
-                    else {
-                        binding.etEmail.text?.clear()
-                        binding.etPassword.text?.clear()
-                        binding.etLoginEmailContainer.error = getString(R.string.invalidEmailText)
-                        binding.etLoginPasswordContainer.error =
-                            getString(R.string.invalidPasswordText)
-                        binding.btEmailLogin.isEnabled = false
+                    } else {
+                        Toast.makeText(
+                            this@LoginActivity,
+                            "use not registered",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        binding.btEmailLogin.setBackgroundColor(resources.getColor(R.color.primaryWhite))
                         binding.btEmailLogin.isClickable = false
+
                     }
                 }
             }
@@ -236,32 +256,34 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             }
         } else {
             binding.btEmailLogin.setBackgroundColor(resources.getColor(R.color.primaryWhite))
-            binding.btEmailLogin.isClickable=false
+            binding.btEmailLogin.isClickable = false
         }
     }
 
-    private fun redirectToFlashPage() {
+    private fun redirectToSplashPage() {
+        startActivity(Intent(this, SplashActivity::class.java))
         binding.etEmail.text?.clear()
         binding.etPassword.text?.clear()
         binding.etLoginEmailContainer.error = null
         binding.etLoginPasswordContainer.error = null
-        val intent = Intent(Intent.ACTION_MAIN)
-        intent.addCategory(Intent.CATEGORY_HOME)
-        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-        startActivity(intent)
     }
 
-    private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
+    fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
         auth.signInWithCredential(credential).addOnCompleteListener(this) { task ->
+
             if (task.isSuccessful) {
-                startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+                userCredential = credential
+                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                finish()
+                session = OtpLoginSession(this)
+                session.createOtpLoginSession()
+                session.saveOtpSession(binding.etFragmentPhoneEditText.text.toString())
                 binding.etFragmentPhoneEditText.text?.clear()
                 binding.etOtp.text?.clear()
             } else {
                 Toast.makeText(this, "Verification failed", Toast.LENGTH_SHORT).show()
                 binding.etFragmentPhoneEditText.text?.clear()
                 binding.etOtp.text?.clear()
-
             }
         }
     }
@@ -294,7 +316,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             btLoginOtp.visibility = View.INVISIBLE
             btPhone.setText(R.string.phoneText)
             btPhone.setCompoundDrawablesWithIntrinsicBounds(
-                ContextCompat.getDrawable(applicationContext, R.drawable.ic_mobile), null, null, null
+                ContextCompat.getDrawable(applicationContext, R.drawable.ic_mobile),
+                null,
+                null,
+                null
             )
             etLoginEmailContainer.visibility = View.VISIBLE
             etLoginPasswordContainer.visibility = View.VISIBLE
@@ -302,8 +327,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             tvForgotText.visibility = View.VISIBLE
         }
         isOtp = false
-
     }
+
 }
 
 

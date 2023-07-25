@@ -46,7 +46,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         binding.mailNotification.visibility = View.GONE
         binding.starNotify.visibility = View.GONE
         binding.imgNotification.visibility = View.GONE
-
     }
     private fun placeProfileFragmentPage() {
         var fragment = ProfileFragment()

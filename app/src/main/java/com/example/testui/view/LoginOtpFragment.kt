@@ -9,6 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.example.testui.databinding.FragmentOtpLoginBinding
+import com.example.testui.session.OtpLoginSession
+import com.example.testui.session.UserSession
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
@@ -77,6 +79,7 @@ class LoginOtpFragment : Fragment() {
         auth.signInWithCredential(credential).addOnCompleteListener(requireActivity()) { task ->
             if (task.isSuccessful) {
                 startActivity(Intent(requireContext(), MainActivity::class.java))
+
                 binding.etFragmentPhoneEditText.text?.clear()
                 binding.etOtp.text?.clear()
             } else {

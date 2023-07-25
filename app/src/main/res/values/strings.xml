@@ -85,4 +85,7 @@
     <string name="generate_otp">Generate Otp</string>
     <string name="log_in_with_otp_text">LOG IN WITH OTP</string>
     <string name="log_in_with_email_text">Log in with Email</string>
+    <string name="facebook_application_id">912912390343929</string>
+    <string name="delete_account">DELETE ACCOUNT</string>
+    <string name="title_activity_splash">SplashActivity</string>
 </resources>

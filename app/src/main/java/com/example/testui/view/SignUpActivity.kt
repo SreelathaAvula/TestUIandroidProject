@@ -15,7 +15,9 @@ import androidx.core.content.ContextCompat
 import com.example.testui.R
 import com.example.testui.databinding.ActivitySignUpBinding
 import com.example.testui.model.UserInfo
+import com.example.testui.session.SignUpSessionManagement
 import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
@@ -35,16 +37,19 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
     private var password: Boolean = false
     private var phone: Boolean = false
     private var email: Boolean = false
-    private var confirmPassword: Boolean = false
     private var checkBox: Boolean = false
     private var imageUri: Uri? = null
     private var downloadUrl: Task<Uri>? = null
+    lateinit var signUpSession: SignUpSessionManagement
+    private val auth = FirebaseAuth.getInstance()
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        signUpSession=SignUpSessionManagement(this)
         setClickListener()
         focusChangeValidation()
     }
@@ -129,7 +134,9 @@ class SignUpActivity : AppCompatActivity(), View.OnClickListener {
         val phone = binding.etPhone.text.toString()
         val image = imageUri.toString()
         Log.i(TAG, "saveToDatabase: $image")
+        signUpSession.createSession()
         val user = UserInfo(firstName, lastName, email, password, phone, image)
+        signUpSession.saveSignupData(user)
         databaseReference.child(firstName).setValue(user).addOnSuccessListener {
             Log.i(TAG, "saveToDatabase:  success ")
             Toast.makeText(this@SignUpActivity, getString(R.string.signup_success_datbase_text), Toast.LENGTH_SHORT).show()

@@ -35,22 +35,22 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/twentyDp"
         android:src="@drawable/ic_setting"
+        app:layout_constraintEnd_toStartOf="@id/logout"
         app:layout_constraintStart_toEndOf="@id/imgShare"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/logout"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/thirtyDp"
+        android:paddingTop="@dimen/fifteenDp"
+        android:paddingEnd="@dimen/tenDp"
         android:src="@drawable/ic_logout"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="@dimen/thirtyDp"
         app:layout_constraintStart_toEndOf="@id/imgSetting"
-        app:layout_constraintTop_toTopOf="parent"
-        android:paddingEnd="@dimen/tenDp"
-        android:paddingTop="@dimen/fifteenDp"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/imgProfileImage"
         android:layout_width="wrap_content"
@@ -306,6 +306,23 @@
         android:src="@drawable/ic_add_box"
         app:layout_constraintStart_toEndOf="@id/ivBoxOne"
         app:layout_constraintTop_toBottomOf="@id/tvMemberText" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnDeleteAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/brandColor"
+        android:text="@string/delete_account"
+        android:textColor="@color/white"
+        android:layout_marginTop="@dimen/thirtyDp"
+        android:paddingStart="@dimen/tenDp"
+        android:paddingEnd="@dimen/tenDp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvInvitesText"
+        android:layout_marginEnd="@dimen/sixTeenDp"
+
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
